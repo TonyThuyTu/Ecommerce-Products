@@ -4,7 +4,8 @@ const cors = require('cors');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const sequelize = require('./src/db/sequelize');
-
+const route = require('./src/routes/index.route');
+const router = express.Router();
 dotenv.config();
 
 const app = express();
@@ -24,6 +25,8 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.get('/', (req, res) => {
   res.send('🚀 Welcome to Products API');
 });
+
+router.use('/api', route);
 
 // Start server and connect DB
 (async () => {

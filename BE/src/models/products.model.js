@@ -7,39 +7,32 @@ const Product = sequelize.define('Product', {
         primaryKey: true, 
         autoIncrement: true 
     },
-
     slug: { 
         type: DataTypes.TEXT 
     },
-
     name_product: { 
         type: DataTypes.STRING, 
         allowNull: false 
     },
-
     price_product: { 
         type: DataTypes.DECIMAL(10,2), 
         allowNull: false 
     },
-
     description: { 
         type: DataTypes.TEXT 
     },
-
     img_main: { 
-        type: DataTypes.STRING 
+        type: DataTypes.STRING,
+        allowNull: true
     },
-
     status: { 
         type: DataTypes.INTEGER, 
         defaultValue: 1 
     },
-
     created_at: { 
         type: DataTypes.DATE, 
         defaultValue: DataTypes.NOW 
     }
-
 }, { 
     tableName: 'Products', 
     timestamps: false 

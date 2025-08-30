@@ -1,15 +1,14 @@
-const sequelize = require('../config/sequelize');
-const { DataTypes } = require('sequelize');
+const sequelize = require('../db/sequelize');
 
-// Import models
-const Product = require('./products.model')(sequelize, DataTypes);
-const Attribute = require('./attributes.model')(sequelize, DataTypes);
-const AttributeValue = require('./attributesvalue.model')(sequelize, DataTypes);
-const ProductAttribute = require('./productattributes.model')(sequelize, DataTypes);
-const ProductVariant = require('./productvariant.model')(sequelize, DataTypes);
-const VariantValue = require('./variantvalue.model')(sequelize, DataTypes);
-const SpecTitle = require('./spectitle.model')(sequelize, DataTypes);
-const SpecName = require('./specname.model')(sequelize, DataTypes);
+// Import models directly (already defined with sequelize.define)
+const Product = require('./products.model');
+const Attribute = require('./attributes.model');
+const AttributeValue = require('./attributesvalue.model');
+const ProductAttribute = require('./productattributes.model');
+const ProductVariant = require('./productvariant.model');
+const VariantValue = require('./variantvalue.model');
+const SpecTitle = require('./spectitle.model');
+const SpecName = require('./specname.model');
 
 // -------------------- Associations --------------------
 
