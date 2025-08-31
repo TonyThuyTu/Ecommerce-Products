@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
   res.send('🚀 Welcome to Products API');
 });
 
-router.use('/api', route);
+app.use('/api', route);
 
 // Start server and connect DB
 (async () => {
