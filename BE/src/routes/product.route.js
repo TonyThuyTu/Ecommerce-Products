@@ -18,6 +18,12 @@ const generateSlug = require('../middileware/slugGenerate');
         upload.single('img_main'),
         generateSlug,
         ProductController.updateProduct
-    )
+    );
+
+    //get detail by id
+    router.get(
+      '/:id',
+      ProductController.getProductById  
+    );
 
 module.exports = router;
