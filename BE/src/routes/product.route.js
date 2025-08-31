@@ -12,4 +12,12 @@ const generateSlug = require('../middileware/slugGenerate');
         ProductController.createProduct
     );
 
+    //update
+    router.put(
+        '/:id',
+        upload.single('img_main'),
+        generateSlug,
+        ProductController.updateProduct
+    )
+
 module.exports = router;
