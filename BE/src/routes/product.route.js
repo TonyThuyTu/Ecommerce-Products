@@ -26,4 +26,10 @@ const generateSlug = require('../middileware/slugGenerate');
       ProductController.getProductById  
     );
 
+    //get all products
+    router.get(
+        '/',
+        ProductController.getAllProducts
+    );
+
 module.exports = router;

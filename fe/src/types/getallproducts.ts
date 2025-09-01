@@ -1,5 +1,5 @@
 
-export interface getAllproducts {
+export interface GetAllproducts {
 
     id: number;
     slug: string;
