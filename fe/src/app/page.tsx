@@ -1,35 +1,17 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import ProductCard from "@/components/ProductCard";
-import { GetAllproducts } from "@/types/getallproducts";
+// src/app/page.tsx
+import type { Metadata } from "next";
 import { getProducts } from "@/services/getAll";
+import HomeClient from "@/components/HomeClient";
 
-export default function HomePage() {
-  const [products, setProducts] = useState<GetAllproducts[]>([]);
-  const [loading, setLoading] = useState(true);
+export const metadata: Metadata = {
+  title: "Home",
+  description: "Browse all products in our store",
+};
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getProducts();
-      setProducts(data);
-      setLoading(false);
-    };
+export default async function HomePage() {
+  // fetch products on the server
+  const products = await getProducts();
 
-    fetchData();
-  }, []); // ✅ run once on mount
-
-  if (loading) {
-    return <p className="text-center mt-10">Loading products...</p>;
-  }
-
-  return (
-    <main className="p-6 bg-gray-50 min-h-screen flex justify-center">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
-    </main>
-  );
+  // pass them to a client component for rendering
+  return <HomeClient initialProducts={products} />;
 }
