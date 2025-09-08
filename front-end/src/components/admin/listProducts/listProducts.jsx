@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { PencilIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 import { getAllProducts } from "@/ultis/api";
@@ -28,6 +29,12 @@ export default function ListProducts () {
     return (
         <div>
             <h1 className="text-center mt-3 text-xl">Products Manager</h1>
+                <Link
+                    href="/admin/product/add"
+                    className="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 transition ml-6"
+                    >
+                    Add Product
+                </Link>
             <div className="p-6">
                 <div className="overflow-x-auto">
                     <table className="min-w-full border border-gray-200">
