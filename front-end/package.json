@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@tinymce/tinymce-react": "^6.3.0",
     "axios": "^1.11.0",
     "dotenv": "^17.2.2",
     "next": "15.5.2",
