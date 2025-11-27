@@ -89,7 +89,7 @@ exports.getProductById = async (req, res) => {
 exports.getAllProducts = async (req, res) => {
   try {
     const products = await Product.findAll({
-      attributes: ["id_product", "name_product", "price_product", "img_main", "slug"],
+      attributes: ["id_product", "name_product", "price_product", "img_main", "slug", "status"],
   });
 
     // Map to frontend format if needed
@@ -99,6 +99,7 @@ exports.getAllProducts = async (req, res) => {
       product_price: p.price_product,
       img_main: `http://localhost:5000/uploads/products/${p.img_main}`,
       slug: p.slug,
+      status: p.status
     }));
 
     return res.json(formatted); // ✅ send response
