@@ -1,29 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
-export default function ProductDescriptionEditor () {
+interface Props {
+  description: string;
+  setDescription: (data: string) => void;
+}
 
-  const [description, setDescription] = useState("");
-
+export default function ProductDescriptionEditor({ description, setDescription }: Props) {
   return (
-
-    <>
-        
-        <div>
-
-            <div>
-
-                
-
-            </div> 
-
-        </div>   
-  
-    </>
-
-  )  
-
+    <CKEditor
+      editor={ClassicEditor}
+      data={description}
+      onChange={(event, editor) => setDescription(editor.getData())}
+    />
+  );
 }
