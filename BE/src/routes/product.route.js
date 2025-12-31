@@ -14,7 +14,7 @@ const generateSlug = require('../middileware/slugGenerate');
 
     //update
     router.put(
-        '/:id',
+        'update/:id',
         upload.single('img_main'),
         generateSlug,
         ProductController.updateProduct
@@ -31,5 +31,7 @@ const generateSlug = require('../middileware/slugGenerate');
         '/',
         ProductController.getAllProducts
     );
+
+
 
 module.exports = router;
